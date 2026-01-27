@@ -15,16 +15,15 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
-      isScrolled 
-        ? 'py-3 bg-white/70 backdrop-blur-xl border-cyan-100/50 shadow-sm' 
-        : 'py-5 bg-transparent border-transparent'
-    }`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${isScrolled
+      ? 'py-3 bg-white/70 backdrop-blur-xl border-cyan-100/50 shadow-sm'
+      : 'py-5 bg-transparent border-transparent'
+      }`}>
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="text-3xl font-tech font-bold tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-slate-800 via-cyan-600 to-blue-600">
-            LUMIÈRE<span className="text-cyan-500">.</span>AI
+            Raine<span className="text-cyan-500">.</span>W
           </a>
 
           {/* Desktop Nav */}
@@ -43,7 +42,7 @@ const Navbar: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button 
+            <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-slate-600 hover:text-cyan-600 p-2 transition-colors"
             >
@@ -54,11 +53,10 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Menu Dropdown */}
-      <div className={`md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-cyan-100 transition-all duration-300 origin-top overflow-hidden ${
-        isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-      }`}>
-         <div className="flex flex-col p-6 space-y-4">
-           {NAV_ITEMS.map((item) => (
+      <div className={`md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-cyan-100 transition-all duration-300 origin-top overflow-hidden ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}>
+        <div className="flex flex-col p-6 space-y-4">
+          {NAV_ITEMS.map((item) => (
             <a
               key={item.label}
               href={item.href}
@@ -68,7 +66,7 @@ const Navbar: React.FC = () => {
               {item.label}
             </a>
           ))}
-         </div>
+        </div>
       </div>
     </nav>
   );

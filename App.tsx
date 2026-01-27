@@ -24,7 +24,7 @@ class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { has
     if (this.state.hasError) {
       return (
         <div className="p-6 bg-white rounded-xl shadow-lg text-center">
-          <h3 className="text-lg font-bold">组件加载出错</h3>
+          <h3 className="text-lg font-bold">error</h3>
           <p className="text-sm text-slate-500">地球可视化组件发生错误，已被禁用以保证页面可用。</p>
         </div>
       );
@@ -80,7 +80,7 @@ const App: React.FC = () => {
 
               {/* Subtitle */}
               <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
-                我是<span className="font-semibold text-slate-800 border-b-2 border-cyan-200">准研究生</span>，专注于人工智能与计算机科学。
+                我是<span className="font-semibold text-slate-800 border-b-2 border-cyan-200">王晓雨</span>，英文名是Raine.W，专注于海洋、人工智能与计算机科学。
                 <br className="hidden md:block" />
                 以代码为笔，算法为墨，绘制科技蓝图。
               </p>
@@ -118,10 +118,10 @@ const App: React.FC = () => {
               </h2>
               <div className="space-y-6 text-lg text-slate-600 leading-relaxed font-light">
                 <p>
-                  作为一名即将步入研究生阶段的计算机专业学生，我对技术充满无限热情。过去四年里，我不仅在学术成绩上名列前茅，更积极投身于科研与竞赛之中。
+                  作为一名即将步入研究生阶段的山大学子，我对技术充满无限热情。过去四年里，我不仅在学术成绩上名列前茅，更积极投身于科研与竞赛之中。
                 </p>
                 <p>
-                  我的研究兴趣主要集中在<strong className="text-cyan-600 font-semibold bg-cyan-50 px-1 rounded">深度学习</strong>、<strong className="text-cyan-600 font-semibold bg-cyan-50 px-1 rounded">计算机视觉</strong>以及<strong className="text-cyan-600 font-semibold bg-cyan-50 px-1 rounded">大模型应用</strong>。我相信，技术应当服务于人类，通过算法解决实际问题是我不断前行的动力。
+                  我的研究兴趣主要集中在<strong className="text-cyan-600 font-semibold bg-cyan-50 px-1 rounded">海洋技术</strong>、<strong className="text-cyan-600 font-semibold bg-cyan-50 px-1 rounded">深度学习</strong>、<strong className="text-cyan-600 font-semibold bg-cyan-50 px-1 rounded">计算机视觉</strong>以及<strong className="text-cyan-600 font-semibold bg-cyan-50 px-1 rounded">大模型应用</strong>。我相信，技术应当服务于人类，通过工程算法解决实际问题是我不断前行的动力。
                 </p>
               </div>
 
@@ -296,7 +296,7 @@ const App: React.FC = () => {
               <a href="#" className="p-4 rounded-full bg-slate-50 text-slate-400 hover:bg-cyan-500 hover:text-white transition-all transform hover:-translate-y-1 shadow-sm"><Mail size={24} /></a>
             </div>
             <div className="text-slate-400 text-xs font-mono tracking-widest">
-              © 2024 PORTFOLIO. ENGINEERED WITH REACT & THREE.JS.
+              © 2025 PORTFOLIO. Authored by Raine.W. All rights reserved.
             </div>
           </div>
         </footer>

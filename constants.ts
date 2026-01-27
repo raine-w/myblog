@@ -11,17 +11,17 @@ export const NAV_ITEMS = [
 export const EDUCATION: Experience[] = [
   {
     id: 'edu1',
-    title: '计算机科学与技术 (保送研究生)',
-    institution: '顶尖知名大学',
-    date: '2024 - 至今',
-    description: '即将攻读硕士学位，主攻人工智能与机器学习方向。',
-    tags: ['Machine Learning', 'Computer Vision', 'NLP']
+    title: '人工智能(保送研究生)',
+    institution: '中国科学院大学',
+    date: '2026 - 至今',
+    description: '即将攻读硕士学位，主攻人工智能与深度学习方向。',
+    tags: ['Artificial Intelligence', 'Deep Learning', 'LLMs']
   },
   {
     id: 'edu2',
-    title: '计算机科学与技术 (学士)',
-    institution: '知名大学',
-    date: '2020 - 2024',
+    title: '海洋资源开发技术 (学士)',
+    institution: '山东大学',
+    date: '2022 - 2026',
     description: 'GPA: 3.9/4.0 (专业前 1%)，连续三年获得国家奖学金。',
     tags: ['Data Structures', 'Algorithms', 'OS', 'Networks']
   }
