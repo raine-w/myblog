@@ -7,37 +7,32 @@ interface TypewriterProps {
   className?: string;
 }
 
-const Typewriter: React.FC<TypewriterProps> = ({ 
-  text, 
-  speed = 70, 
-  delay = 500, 
-  className = "" 
+const Typewriter: React.FC<TypewriterProps> = ({
+  text,
+  speed = 120,
+  delay = 500,
+  className = ""
 }) => {
-  const [displayedText, setDisplayedText] = useState("");
-  const [started, setStarted] = useState(false);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const startTimeout = setTimeout(() => {
-      setStarted(true);
-    }, delay);
-    return () => clearTimeout(startTimeout);
-  }, [delay]);
-
-  useEffect(() => {
-    if (!started) return;
-
-    if (displayedText.length < text.length) {
-      const timeout = setTimeout(() => {
-        setDisplayedText(text.slice(0, displayedText.length + 1));
-      }, speed);
-      return () => clearTimeout(timeout);
+    let timer: any;
+    if (index === 0) {
+      // initial delay before starting
+      timer = setTimeout(() => setIndex(1), delay);
+    } else if (index < text.length) {
+      timer = setTimeout(() => setIndex(i => i + 1), speed);
+    } else if (index === text.length) {
+      // finished, wait 5s then restart
+      timer = setTimeout(() => setIndex(0), 5000);
     }
-  }, [displayedText, started, text, speed]);
+    return () => clearTimeout(timer);
+  }, [index, text, speed, delay]);
 
   return (
     <span className={className}>
-      {displayedText}
-      <span className="animate-pulse text-cyan-500 font-bold ml-1">_</span>
+      {text.slice(0, index)}
+      <span className="animate-pulse text-cyan-500 font-bold">_</span>
     </span>
   );
 };
