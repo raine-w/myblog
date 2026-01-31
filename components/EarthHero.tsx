@@ -27,8 +27,14 @@ const Globe = () => {
   ]);
 
   // Ensure correct color space for color and clouds
-  if (colorMap) { colorMap.encoding = THREE.sRGBEncoding; colorMap.needsUpdate = true; }
-  if (cloudsMap) { cloudsMap.encoding = THREE.sRGBEncoding; cloudsMap.needsUpdate = true; }
+  if (colorMap) { 
+    colorMap.colorSpace = THREE.SRGBColorSpace;
+    colorMap.needsUpdate = true; 
+  }
+  if (cloudsMap) { 
+    cloudsMap.colorSpace = THREE.SRGBColorSpace;
+    cloudsMap.needsUpdate = true; 
+  }
 
   useFrame((state, delta) => {
     if (earthRef.current) earthRef.current.rotation.y += delta * 0.05;

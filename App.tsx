@@ -1,11 +1,13 @@
-import React from 'react';
-import ThreeBackground from './components/ThreeBackground';
-import EarthHero from './components/EarthHero';
+import React, { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Section from './components/Section';
 import Typewriter from './components/Typewriter';
 import { EDUCATION, AWARDS, PROJECTS } from './constants';
 import { ChevronDown, Github, Linkedin, Mail, Trophy, Cpu, Sparkles, ExternalLink, Globe, Code, Database } from 'lucide-react';
+
+// Lazy load heavy 3D components
+const ThreeBackground = lazy(() => import('./components/ThreeBackground'));
+const EarthHero = lazy(() => import('./components/EarthHero'));
 
 class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean; error?: any }> {
   constructor(props: any) {
@@ -39,7 +41,9 @@ const App: React.FC = () => {
     <div className="relative min-h-screen text-slate-800 selection:bg-cyan-200 selection:text-cyan-900 font-sans">
       {/* Global Particle Background */}
       <div className="fixed inset-0 z-0">
-        <ThreeBackground />
+        <Suspense fallback={<div className="w-full h-full bg-slate-50"></div>}>
+          <ThreeBackground />
+        </Suspense>
       </div>
 
       {/* Navigation */}
@@ -53,7 +57,16 @@ const App: React.FC = () => {
           {/* Earth Container */}
           <div className="w-full h-[55vh] md:h-[75vh] relative z-10 animate-fade-in-slow flex-shrink-0 cursor-grab active:cursor-grabbing">
             <ErrorBoundary>
-              <EarthHero />
+              <Suspense fallback={
+                <div className="w-full h-full flex items-center justify-center">
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="w-12 h-12 border-4 border-cyan-600 border-t-transparent rounded-full animate-spin"></div>
+                    <div className="text-cyan-800 text-sm font-mono tracking-widest">LOADING...</div>
+                  </div>
+                </div>
+              }>
+                <EarthHero />
+              </Suspense>
             </ErrorBoundary>
           </div>
 
@@ -239,7 +252,12 @@ const App: React.FC = () => {
                 {/* Image Area */}
                 <div className="relative h-60 overflow-hidden">
                   <div className="absolute inset-0 bg-slate-200"></div>
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    loading="lazy"
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
+                  />
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
 
